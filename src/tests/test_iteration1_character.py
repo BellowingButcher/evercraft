@@ -228,7 +228,7 @@ def test_xp_growth():
     defender = Character('keith', 'evil', ability_scores, xp)
     attacker.attack(attacker, defender, 13)
     assert getattr(attacker, 'xp') == 1010
-
+    
 def test_level():
     strength = 10
     dexterity = 10
@@ -239,7 +239,6 @@ def test_level():
     xp = 1000
     ability_scores = [strength, dexterity, constitution, wisdom, intelligence, charisma]
     lvlboi = Character('lvlboi', 'the best', ability_scores, 1024)
-    #setattr(lvlboi, 'xp', 1024)
     assert getattr(lvlboi, 'level_number') == 1
     
 def test_level():

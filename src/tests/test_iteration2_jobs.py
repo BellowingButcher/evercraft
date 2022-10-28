@@ -128,3 +128,20 @@ def test_senior_dev_forloop_normie():
     Michael_McGraw = Character('Michael McGraw', 'Oreos', ability_scores, xp)
     Josh_Stewart.for_loop(Josh_Stewart, Michael_McGraw, 10)
     Michael_McGraw.hit_points == 7
+
+def test_random_fun():
+    strength = 10
+    dexterity = 10
+    constitution = 10 
+    wisdom = 10
+    intelligence = 10
+    charisma = 10
+    xp = 1000
+    ability_scores = [strength, dexterity, constitution, wisdom, intelligence, charisma]
+    Logan_Hall = senior_javascript_dev('Logan', 'Technomancy', ability_scores, xp)
+    Justin_Hall = senior_javascript_dev('Justin', 'The All Powerful Code', ability_scores, xp)
+    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 20)
+    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 15)
+    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 11)
+    assert Justin_Hall.is_alive == False
+    # Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 20)
