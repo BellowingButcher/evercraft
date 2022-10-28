@@ -26,21 +26,25 @@ class Butcher(Character):
         ability_scores = [strength, dexterity, constitution, wisdom, intelligence, charisma]
         super().__init__(Name, alignment, ability_scores, xp)
     def smoked_butt(self, target1, target2, roll):
-        roll = int(roll + self.attack_roll_mod)
-        if roll >= 20:
-            return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points) * 2))), setattr(target1, 'xp', self.xp + 10)
-        elif roll < 20 and roll > 1:
-            return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points)))), setattr(target1, 'xp', self.xp + 10)
-        elif roll == 1:
-            print('you really suck')
+        if target2.hit_points > 0:
+            roll = int(roll + self.attack_roll_mod)
+            if roll >= 20:
+                return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points) * 2))), setattr(target1, 'xp', self.xp + 10)
+            elif roll < 20 and roll > 1:
+                return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points)))), setattr(target1, 'xp', self.xp + 10)
+            elif roll == 1:
+                print('you really suck')
+        else: return setattr(target2, 'is_alive', False)
     def bone_breaker(self, target1, target2, roll):
-        roll = int(roll + self.attack_roll_mod)
-        if roll >= 20:
-            return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points + 2) * 2))), setattr(target1, 'xp', self.xp + 10)
-        elif roll < 20 and roll > 1:
-            return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points + 2)))), setattr(target1, 'xp', self.xp + 10)
-        elif roll == 1:
-            print('you really suck')
+        if target2.hit_points > 0:
+            roll = int(roll + self.attack_roll_mod)
+            if roll >= 20:
+                return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points + 2) * 2))), setattr(target1, 'xp', self.xp + 10)
+            elif roll < 20 and roll > 1:
+                return setattr(target2, 'hit_points', (int(target2.hit_points) - (int(target1.attack_points + 2)))), setattr(target1, 'xp', self.xp + 10)
+            elif roll == 1:
+                print('you really suck')
+        else: return setattr(target2, 'is_alive', False)
 
 class senior_javascript_dev(Character):
     def __init__(self, Name, alignment, ability_scores, xp):
@@ -56,15 +60,17 @@ class senior_javascript_dev(Character):
         self.hit_points = 5 + ((2 + roll_modifier(ability_scores[2])) * self.level_number)
     def for_loop(self, target1, target2, roll):
         roll = int(roll + self.attack_roll_mod)
-        if roll >= 20:
-            test = target2.hit_points
-            for x in range(1, 4):
-                test -= (int(target1.attack_points) * 2)
-            return setattr(target2, 'hit_points', test)
-        elif roll < 20 and roll > 1:
-            test = target2.hit_points
-            for x in range(1, 4):
-                test -= (int(target1.attack_points))
-            return setattr(target2, 'hit_points', test)
-        elif roll == 1:
-            print('you really suck but 3 times')
+        if target2.hit_points > 0:
+            if roll >= 20:
+                test = target2.hit_points
+                for x in range(1, 4):
+                    test -= (int(target1.attack_points) * 2)
+                return setattr(target2, 'hit_points', test)
+            elif roll < 20 and roll > 1:
+                test = target2.hit_points
+                for x in range(1, 4):
+                    test -= (int(target1.attack_points))
+                return setattr(target2, 'hit_points', test)
+            elif roll == 1:
+                print('you really suck but 3 times')
+        else: return setattr(target2, 'is_alive', False)

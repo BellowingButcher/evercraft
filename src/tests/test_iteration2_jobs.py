@@ -138,10 +138,9 @@ def test_random_fun():
     charisma = 10
     xp = 1000
     ability_scores = [strength, dexterity, constitution, wisdom, intelligence, charisma]
-    Logan_Hall = senior_javascript_dev('Logan', 'Technomancy', ability_scores, xp)
-    Justin_Hall = senior_javascript_dev('Justin', 'The All Powerful Code', ability_scores, xp)
-    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 20)
-    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 15)
-    Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 11)
+    Logan_Hall = Butcher('Logan', 'Technomancy', ability_scores, xp)
+    Justin_Hall = Character('Justin', 'The All Powerful Code', ability_scores, xp)
+    Logan_Hall.bone_breaker(Logan_Hall, Justin_Hall, 20)
+    Logan_Hall.bone_breaker(Logan_Hall, Justin_Hall, 20)
     assert Justin_Hall.is_alive == False
     # Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 20)
