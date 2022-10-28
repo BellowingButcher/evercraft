@@ -142,5 +142,6 @@ def test_random_fun():
     Justin_Hall = Character('Justin', 'The All Powerful Code', ability_scores, xp)
     Logan_Hall.bone_breaker(Logan_Hall, Justin_Hall, 20)
     Logan_Hall.bone_breaker(Logan_Hall, Justin_Hall, 20)
+    Logan_Hall.smoked_butt(Logan_Hall, Justin_Hall, 12)
     assert Justin_Hall.is_alive == False
     # Logan_Hall.for_loop(Logan_Hall, Justin_Hall, 20)
